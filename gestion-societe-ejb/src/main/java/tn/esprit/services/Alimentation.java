@@ -1,5 +1,6 @@
 package tn.esprit.services;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -23,7 +24,7 @@ public class Alimentation {
 		// TODO Auto-generated constructor stub
 	}
 
-	// @PostConstruct
+	@PostConstruct
 	public void addEmployee() {
 		Employee employee = new Employee();
 		employee.setName("foulen");

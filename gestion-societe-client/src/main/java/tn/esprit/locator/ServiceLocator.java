@@ -11,36 +11,37 @@ public class ServiceLocator {
 	private static ServiceLocator instance;
 	private Map<String, Object> cache;
 	Context context;
- private ServiceLocator() {
-	 cache=new HashMap<String, Object>();
-	try {
-		context =new InitialContext();
-	} catch (NamingException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-}
- public synchronized Object getProxy(String jndi){
-	 if(cache.get(jndi)!=null)
-		 return cache.get(jndi);
-	 else{
-		 Object object = null;
+
+	private ServiceLocator() {
+		cache = new HashMap<String, Object>();
 		try {
-			object = context.lookup(jndi);
-			 cache.put(jndi, object);
+			context = new InitialContext();
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		 return object;
-	 }
-	 
- }
-public static ServiceLocator getInstance() {
-	if(instance==null)
-		instance=new ServiceLocator();
-	return instance;
-}
+	}
+
+	public synchronized Object getProxy(String jndi) {
+		if (cache.get(jndi) != null)
+			return cache.get(jndi);
+		else {
+			Object object = null;
+			try {
+				object = context.lookup(jndi);
+				cache.put(jndi, object);
+			} catch (NamingException e) {
+				e.printStackTrace();
+			}
+
+			return object;
+		}
+
+	}
+
+	public static ServiceLocator getInstance() {
+		if (instance == null)
+			instance = new ServiceLocator();
+		return instance;
+	}
 
 }
