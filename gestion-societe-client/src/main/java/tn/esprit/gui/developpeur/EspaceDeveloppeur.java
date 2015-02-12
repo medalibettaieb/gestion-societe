@@ -1,13 +1,12 @@
 package tn.esprit.gui.developpeur;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import java.awt.Font;
 
 public class EspaceDeveloppeur extends JFrame {
 
@@ -41,7 +40,7 @@ public class EspaceDeveloppeur extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblEspaceDeveloppeur = new JLabel("Espace developpeur");
 		lblEspaceDeveloppeur.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblEspaceDeveloppeur.setBounds(30, 129, 342, 37);

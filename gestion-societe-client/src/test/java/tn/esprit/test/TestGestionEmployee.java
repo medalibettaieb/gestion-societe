@@ -1,6 +1,7 @@
 package tn.esprit.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -12,14 +13,15 @@ public class TestGestionEmployee {
 
 	@Test
 	public void doAuthentificate() {
-		assertTrue(GestionEmployeeDelagate.doAuthentificate("dev", "dev")!=null);
+		assertTrue(GestionEmployeeDelagate.doAuthentificate("dev", "dev") != null);
 	}
+
 	@Test
 	public void doAddEmployee() {
-		Employee employee=new Directeur();
+		Employee employee = new Directeur();
 		employee.setName("directeur");
 		employee.setLogin("directeur");
 		employee.setPwd("directeur");
-	assertEquals(GestionEmployeeDelagate.doAddEmployee(employee),true);
+		assertEquals(GestionEmployeeDelagate.doAddEmployee(employee), true);
 	}
 }
